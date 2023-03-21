@@ -1,0 +1,87 @@
+---
+layout: page
+title: "宁波市文亨动力机械有限公司"
+description: "Ningbo Wenheng Power Machinery Co., Ltd"
+header-img: "image/bg.png"
+---
+
+<!-- Language Selector -->
+<!-- <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英文 English </option>
+</select> -->
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+
+    <!--copied from markdown -->
+    <p><strong>宁波市文亨动力机械有限公司</strong>是一家专业液压测试流体连接件制造者，宁波文亨动力位于中国经济实力百强县的余姚市，同时余姚市拥有"中国液压之都"的行业称号，余姚附近有中国吞吐量最大的上海港和宁波港，这一得天独厚的地理优势，使得货物的运输和到达到有了质的保证。公司主要生产经营产品有压力表开关、压力表、压力继电器、压力表接头、测压接头、液压测试软管和接头、润滑系统接头以及非标液压件定制。公司自成立以来坚持自主研发生产液压测试流体连接件＋进口国产液压元器件代理销售的双重优势路线，公司目前拥有加工中心和数控车床及液压流体连接件测试设备多台，公司技术力量雄厚、生产经验丰富，研发经验丰富工程师数名，生产和质量管理人员均为机械制造行业拥有数年经验人员。</p>
+    <p><strong>企业愿景：</strong>致力于成为液压测试流体连接件优秀制造者，引领行业进步！</p>
+    <p><strong>企业理念：</strong>让客户用上性价比优越产品，文亨动力，价值连城。</p>
+    <p><strong>地址：</strong>宁波市余姚市凤山街道兵马司路57号</p>
+    <p><strong>电话：</strong>15869358879</p>
+    <p><strong>邮箱：</strong>cnyeya@126.com</p>
+</div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // get nodes
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+
+    // bind hashchange event
+    window.addEventListener('hashchange', _render);
+
+    // handle render
+    function _render(){
+        var _hash = window.location.hash;
+        // en
+        if(_hash == "#en"){
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        // zh by default
+        }else{
+            // not trigger onChange, otherwise cause a loop call.
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }
+    }
+
+    // handle select change
+    function onLanChange(index){
+        if(index == 0){
+            window.location.hash = "#zh"
+        }else{
+            window.location.hash = "#en"
+        }
+    }
+
+    // init
+    _render();
+</script>
+
+
+<!-- Gitalk 评论 start  -->
+{% if site.gitalk.enable %}
+<!-- Gitalk link  -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+    <script type="text/javascript">
+    var gitalk = new Gitalk({
+    clientID: '{{site.gitalk.clientID}}',
+    clientSecret: '{{site.gitalk.clientSecret}}',
+    repo: '{{site.gitalk.repo}}',
+    owner: '{{site.gitalk.owner}}',
+    admin: ['{{site.gitalk.admin}}'],
+    distractionFreeMode: {{site.gitalk.distractionFreeMode}},
+    id: 'about',
+    });
+    gitalk.render('gitalk-container');
+</script>
+{% endif %}
+<!-- Gitalk end -->
