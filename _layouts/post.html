@@ -23,6 +23,12 @@ layout: default
         background: rgba(0,0,0, {{ page.header-mask }});
     }
     {% endif %}
+
+    .contentPosition {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
 </style>
 <header class="intro-header" >
     <div class="header-mask"></div>
@@ -46,14 +52,15 @@ layout: default
 
 <!-- Post Content -->
 <article>
-    <div class="container">
+    <div class="container contentPosition" >
         <div class="row">
 
     <!-- Post Container -->
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
-                post-container">
+                post-container
+                contentPosition">
 
 				{{ content }}
 
